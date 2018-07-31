@@ -1,0 +1,3 @@
+[cli]
+bears = ESLintBear
+files = page_main.html

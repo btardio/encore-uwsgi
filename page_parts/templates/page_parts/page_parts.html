@@ -1,0 +1,315 @@
+
+<br>
+
+
+<script>
+
+    jQuery.noConflict();
+
+    jQuery(document).ready(function( $ ) {
+        var $mbarlogo = $(".menubarlogo");
+        $mbarlogo.animate({ opacity: 1.0 }, 400, "swing", function(){});
+    });
+
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    var csrftoken = getCookie('csrftoken'); 
+
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    jQuery(document).ready(function( $ ) {
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+
+    var domainhint = "{{ domain }}";
+    var domain = null;
+    var tabsinstance = null;
+    
+    jQuery(document).ready(function( $ ) {
+        
+        var domainname = window.location.href;
+                
+        domain = RegExp("/.*" + domainhint + "/").exec(domainname)[0].replace(/\//g,"");        
+        
+        $(".encoreselect").formSelect( ); 
+        
+        $("#body_year_select").prop("disabled", true);
+        $("#body_make_select").prop("disabled", true);
+        $("#body_model_select").prop("disabled", true);
+        $("#body_engine_select").prop("disabled", true);
+        $("#body_product_select").prop("disabled", true);
+        
+        $(".encoreselect").formSelect(); 
+        
+        //fill($);
+        
+        fillyearfaceted( $ );
+        
+        setonchange($);
+        
+        setclearfilters($);
+
+        setbtnclick($);
+        
+        elem = document.getElementById("ultabs");
+
+        options = { "swipeable": true };
+        
+        tabsinstance = M.Tabs.init(elem, options);
+        
+        // let user hit enter for part number input
+        $("#encorepartinputid").on("keypress", function( event ) {
+            if ( "which" in event && event.which == 13 ){
+                $("#encorepartdetailsearchbtn").click();
+            }
+        });
+        
+        $("#encoreoempartinputid").on("keypress", function( event ) {
+            if ( "which" in event && event.which == 13 ){
+                $("#encoreoempartsearchbtn").click();
+            }
+        });
+        
+        var fromclick = false;
+        
+        if ( window.location.href.includes("tabs-1") ){
+            tabsinstance.select("tab1");
+        }
+        else if ( window.location.href.includes("tabs-2") ){
+            tabsinstance.select("tab2");
+        }
+        else if ( window.location.href.includes("tabs-3") ){
+            tabsinstance.select("tab3");
+        }
+            
+        $("#tab1link").on("click", function() {
+            window.location.href = "http://" + domain + "/parts#tabs-1";
+            fromclick = true;
+        });
+        $("#tab2link").on("click", function() {
+            window.location.href = "http://" + domain + "/parts#tabs-2";
+            fromclick = true;
+        });
+        $("#tab3link").on("click", function() {
+            window.location.href = "http://" + domain + "/parts#tabs-3";
+            fromclick = true;
+        });        
+                
+        $(window).on("hashchange", function() {
+        
+            if ( ! fromclick ){
+                if ( window.location.href.includes("tabs-1") ){
+                    tabsinstance.select("tab1");
+                }
+                else if ( window.location.href.includes("tabs-2") ){
+                    tabsinstance.select("tab2");
+                }
+                else if ( window.location.href.includes("tabs-3") ){
+                    tabsinstance.select("tab3");
+                }
+            }
+            fromclick = false;
+        });
+        
+    });
+    
+
+
+    
+</script>
+
+<br><br><br><br><br>
+
+<div class="materialize-iso" style="background-color:white;">
+
+  <div class="row tabsrow">
+    <div class="col s12 grey darken-4 grey-text text-lighten-5">
+      <ul id="ultabs" class="tabs">
+        <li class="tab col s4"><a id="tab1link" class="grey darken-4 grey-text text-lighten-5" href="#tab1">Search by Vehicle</a></li>
+        <li class="tab col s4"><a id="tab2link" class="grey darken-4 grey-text text-lighten-5" href="#tab2">Parts Detail</a></li>
+        <li class="tab col s4"><a id="tab3link" class="grey darken-4 grey-text text-lighten-5" href="#tab3">Search by Cross Reference</a></li>
+      </ul>
+    </div>
+    <div id="tab1" class="col s12">
+                
+
+    <div id="encboundingcontainer" class="container enc-parts-input-container">
+        <div class="row">
+            <div class="col s3">
+    
+    
+    <div  class="container enc-parts-input">
+            
+        <div class="row">
+            <div class="col s6">
+                <div class="input-field">
+
+                    <label>Year</label>
+                    <br>
+                    <div class="encoreselectdiv" id="body_year">
+                        <select class="encoreselect" id="body_year_select">
+                            <option>No Selection</option>
+                        </select>
+                        <a id="clrselectyear" class="waves-effect waves-teal btn-flat-sm">Clear Selection</a>
+                    </div>                        
+                </div>
+            </div>
+                
+            <div class="col s6">
+                <div class="input-field">
+
+                    <label>Make</label>
+                    <br>
+                    <div class="encoreselectdiv" id="body_make">
+
+                        <select class="encoreselect" id="body_make_select">
+                            <option>No Selection</option>
+                        </select>
+                        <a id="clrselectmake" class="waves-effect waves-teal btn-flat-sm">Clear Selection</a>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+
+        <div class="row">
+            <div class="col s6">
+                <div class="input-field">
+
+                    <label>Model</label>
+                    <br>
+                    <div class="encoreselectdiv" id="body_model">
+                    
+                        <select class="encoreselect" id="body_model_select">
+                            <option>No Selection</option>
+                        </select>        
+                        <a id="clrselectmodel" class="waves-effect waves-teal btn-flat-sm">Clear Selection</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6">
+                <div class="input-field">
+                    
+                    <label>Engine</label>
+                    <br>
+                    <div class="encoreselectdiv" id="body_engine">
+                        
+                        <select class="encoreselect" id="body_engine_select">
+                            <option>No Selection</option>
+                        </select>
+                        <a id="clrselectengine" class="waves-effect waves-teal btn-flat-sm">Clear Selection</a>
+                    
+                    </div>
+                </div>
+            </div>
+            
+        </div> <!-- <div class="row"> -->
+
+        <div class="row">
+            <div class="col s6">
+                <div class="input-field">
+                    
+                    <label>Part</label>
+                    <br>
+                    <div class="encoreselectdiv" id="body_product">
+                        
+                        <select class="encoreselect" id="body_product_select">
+                            <option>No Selection</option>
+                        </select>
+                        <a id="clrselectproduct" class="waves-effect waves-teal btn-flat-sm">Clear Selection</a>
+                    
+                    </div>
+                </div>
+            </div>
+            
+        </div> <!-- <div class="row"> -->
+
+
+    </div> <!-- <div class="container enc-parts-input"> -->
+
+            </div> <!-- <div class="col s3"> -->
+            <div style="border-left-style: solid; border-left-size:1px; border-left-color:black;" class="col s9">
+                
+                <div id="encoreparts">
+
+                </div>
+            </div>
+        </div> <!-- <div class="row"> -->
+    </div> <!-- <div class="container enc-parts-input-container"> -->
+
+    </div> <!-- <div id="tab1" class="col s12"> -->
+
+    <div id="tab2" class="col s12">
+        
+        <div class="container">
+
+            <div class="row">
+                <div class="col s6">
+                
+                    <input id="encorepartinputid" class="w3-input" type="text">
+                    <label>Part Number</label>
+                    <br><br>
+                    <a id="encorepartdetailsearchbtn" class="waves-effect btn enc-search-btn">Search</a>                
+                    <br><br>
+                    <div style="text-align:center;width:100%;" id="encorepartdetail">
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="center-align" id="encorepartdetailimage">
+                    </div>
+                    <!--<div style="text-align:center;width:100%;" id="encorepartoem">
+                    </div>-->
+                </div>
+            </div>
+
+        </div>    
+    
+    </div> <!-- <div id="tab2" class="col s12"> -->
+    <div id="tab3" class="col s12">
+
+        <div class="container">
+            <input id="encoreoempartinputid" class="w3-input" type="text">
+            <label>Original Equipment Part Number</label>
+            <br><br>
+            <button id="encoreoempartsearchbtn" class="waves-effect btn enc-search-btn">Search</button>
+            <br><br>
+            <div style="text-align:center;width:100%;" id="encorepartoembody">
+            </div>
+        </div> <!-- <div class="container"> -->
+        
+    </div> <!-- <div id="tab3" class="col s12"> -->
+  </div> <!-- <div class="row tabsrow"> -->
+    
+    
+</div> <!-- <div class="materialize-iso"> -->
+
+
+
+
+
+

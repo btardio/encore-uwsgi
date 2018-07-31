@@ -1,0 +1,260 @@
+
+
+
+<script>
+
+    
+
+    jQuery(document).ready(function( $ ) {
+        var $mbarlogo = $(".menubarlogo");
+        $mbarlogo.animate({ opacity: 1.0 }, 400, "swing", function(){});
+    });
+
+  
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    var csrftoken = getCookie('csrftoken'); 
+
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+
+      
+</script>
+
+
+                            
+
+<div class="materialize-iso" style="background-color:white;">                            
+
+<div id="myhiddendiv" class="hiddendiv common"></div>
+
+<br><br><br><br><br><br>
+
+<form action="/contact" method="post" class="form-horizontal" enctype="multipart/form-data">
+
+<div class="container">
+
+    <div class="row">
+        <div class="col s12">
+                
+                <h4>Contact Us:</h4>
+                
+                {% csrf_token %}  
+                                            
+                {{ form.non_field_errors }}
+            
+                {% if form.errors %}
+                <div class="alert alert-danger" role="alert">
+                    Your form has errors, check each field for correctness.
+                </div>
+                {% endif %}
+            
+                {% comment %}
+                {% if status_message != '' %}
+                
+                    {% if status_success == True %}
+                    <div class="alert alert-success" role="alert">
+                    {% else %}
+                    <div class="alert alert-danger" role="alert">
+                    {% endif %}
+                    
+                    {{ status_message }}
+                    </div>
+                {% endif %}
+                {% endcomment %}
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s6">
+                                
+            <!-- ### ### ### form text, first name ### ### ### -->
+                                
+            <label for="{{ form.firstname.id_for_label }}">
+                {{ form.firstname.label }}
+            </label>
+            {{ form.firstname }}
+                                
+            {% if form.firstname.errors %}
+                {% for error in form.firstname.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}      
+            
+        </div>
+        
+        <div class="input-field col s6">
+                                
+            <!-- ### ### ### form text, last name ### ### ### -->
+
+            <label for="{{ form.lastname.id_for_label }}" class="col-form-label">
+            {{ form.lastname.label }}
+            </label>
+            {{ form.lastname }}
+
+            {% if form.lastname.errors %}
+                {% for error in form.lastname.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}        
+            
+        </div>
+        
+        
+    </div>
+
+    <div class="row">
+        <div class="input-field col s2">
+                                
+            <!-- ### ### ### form text, phone number ### ### ### -->
+
+            <label for="{{ form.phonearea.id_for_label }}">
+            {{ form.phonearea.label }}
+            </label>
+            {{ form.phonearea }}
+            {% if form.phonearea.errors %}
+                {% for error in form.phonearea.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}       
+            
+        </div>
+        
+        <div class="input-field col s2">
+                                
+            <label for="{{ form.phonefirst.id_for_label }}">
+            {{ form.phonefirst.label }}
+            </label>
+            {{ form.phonefirst }}
+            {% if form.phonefirst.errors %}
+                {% for error in form.phonefirst.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}   
+            
+        </div>
+
+        <div class="input-field col s2">
+                                
+            <label for="{{ form.phonelast.id_for_label }}">
+            {{ form.phonelast.label }}
+            </label>
+            {{ form.phonelast }}
+            {% if form.phonelast.errors %}
+                {% for error in form.phonelast.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}    
+            
+        </div>
+
+        <div class="input-field col s6">
+                                
+            <!-- ### ### ### form text, email ### ### ### -->
+
+            <label for="{{ form.email.id_for_label }}">
+            {{ form.email.label }}
+            </label>
+            {{ form.email }}
+
+            {% if form.email.errors %}
+                {% for error in form.email.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}       
+            
+        </div>        
+                
+          
+        
+    </div>    
+    
+    
+    <div class="row">
+
+        <div class="input-field col s6">
+                                
+            <!-- ### ### ### form text, skype ### ### ### -->
+
+            <label for="{{ form.skypeid.id_for_label }}">
+            {{ form.skypeid.label }}
+            </label>
+            {{ form.skypeid }}
+
+            {% if form.skypeid.errors %}
+                {% for error in form.skypeid.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}       
+            
+        </div>        
+                
+          
+        
+    </div>    
+    
+    <div class="row">
+
+        <div class="input-field col s12">
+        
+            <!-- ### ### ### form textarea, message ### ### ### -->
+        
+            <label for="{{ form.message.id_for_label }}">
+                {{ form.message.label }}
+            </label>
+            {{ form.message }}
+            
+            {% if form.message.errors %}
+                {% for error in form.message.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}               
+        
+        </div>
+    
+    </div>    
+    
+    <div class="row">
+
+        <div class="col s12">
+            <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+        </div>
+    
+    </div>
+    
+</div>
+
+                                   
+
+</form>
+
+</div> <!-- <div class="materialize-iso" style="background-color:white;"> -->
+                                
+<br>
+                                
+                                

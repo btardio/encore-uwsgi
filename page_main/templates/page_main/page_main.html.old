@@ -1,0 +1,424 @@
+<html>
+<head>
+<title>Encore Automotive Parts</title>
+<link rel="stylesheet" type="text/css" href="static/encore.css">
+<link rel="stylesheet" type="text/css" href="static/bootstrap.min.css">
+
+<script type="text/javascript" src="static/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="static/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="static/modernizr-custom.js"></script>
+<script type="text/javascript" src="static/jquery-ui.min.js"></script>
+
+</head>
+<body>
+
+
+<script>
+
+$(document).ready(function(){
+
+/*
+$('.jcarousel').jcarousel({
+        // Configuration goes here
+    });
+*/
+    
+    var scrollskip = 0;
+    var scrollbool = true;
+    (function($, Modernizr) {
+
+        $(function() {
+
+            $('.jcarousel').jcarousel({
+
+                wrap: 'circular',
+
+                transitions: Modernizr.csstransitions ? {
+
+                    transforms:   Modernizr.csstransforms,
+
+                    transforms3d: Modernizr.csstransforms3d,
+
+                    easing:       'ease'
+
+                } : false
+
+            });
+
+            
+            function scrolltimer(){ 
+                if ( scrollbool ){
+                    $('.jcarousel').jcarousel('scroll', '+=1');
+                }
+                else{
+                    
+                    if ( (scrollskip + 1) % 4 == 0 ){
+                        scrollskip = 0;
+                        scrollbool = true;
+                    }
+                    else {
+                        scrollskip += 1;
+                    }
+                }
+            }
+            
+            setInterval(scrolltimer, 6000);
+            
+            
+            /*
+            $('.jcarousel-control-prev').jcarouselControl({
+
+                target: '-=1'
+
+            });
+
+
+
+            $('.jcarousel-control-next').jcarouselControl({
+
+                target: '+=1'
+
+            });
+            */
+        });
+
+    })(jQuery, Modernizr);
+        
+    $("#encvidid").on("ended", function(){
+        $("#encvidid").get(0).currentTime = 5;
+    });
+     
+    
+    
+    
+    $("#carouselnav0").on("click", function()
+    {
+        $('.jcarousel').jcarousel('scroll', 0);
+        scrollbool = false; scrollskip = 0;
+    });
+
+    $("#carouselnav1").on("click", function()
+    {
+        $('.jcarousel').jcarousel('scroll', 1);
+        scrollbool = false; scrollskip = 0;
+    });
+
+    $("#carouselnav2").on("click", function()
+    {
+        $('.jcarousel').jcarousel('scroll', 2);
+        scrollbool = false; scrollskip = 0;
+    });
+    
+    // outerHeight
+    // offset().top
+    //window.height
+    //window.scrollTop
+    
+    var $productimage = $('#product-image-id');
+    var $storyimage = $('#story-image-id');
+    var $window = $(window);
+    var $encvid = $("#encvidid");
+    var $productimagein = false;
+    var $storyimagein = false;
+    var $mbarlogo = $(".menubarlogo");
+    var $animationinprogress = false;
+    
+    //$( "#product-image-id" ).fadeTo(5,0);
+    
+    $(window).on("scroll",function(){
+        
+//         console.log( "between " + $(window).scrollTop() + " and " + ((parseInt($(window).scrollTop())) + (parseInt($(window).height()))) + " " );
+//         
+//         console.log( "between " + parseInt($productimage.offset().top) + " and " + (parseInt($productimage.offset().top) + parseInt($productimage.outerHeight())) );
+//         
+//         console.log( "fire if " + $productimagein && parseInt($productimage.offset().top) + "<" + ((parseInt($(window).scrollTop())) + (parseInt($(window).height()))));
+        
+        if ( ! $productimagein && parseInt($productimage.offset().top) < ((parseInt($(window).scrollTop())) + (parseInt($(window).height()))) ){
+            
+            $( "#product-image-id" ).effect( "slide", {direction:"right", distance: 1000+ $productimage.offset().right + $productimage.width() }, 2000, endslide );
+            $( "#product-image-scr-id").css({"visibility":"visible"});
+
+            $productimagein = true;            
+        }
+        
+        if ( ! $storyimagein && parseInt($storyimage.offset().top) < ((parseInt($(window).scrollTop())) + (parseInt($(window).height()))) ){
+            
+            $( "#story-image-id" ).effect( "slide", {direction:"left", distance: 1000+ $storyimage.offset().right + $storyimage.width() }, 2000, endslide );
+            $( "#story-image-scr-id").css({"visibility":"visible"});
+
+            $storyimagein = true;
+            
+        }
+        
+        //console.log( (parseInt($encvid.offset().top) + parseInt($encvid.height()))  );
+        //console.log( ((parseInt($(window).scrollTop())))  );
+        
+        if ( (parseInt($encvid.offset().top) + parseInt($encvid.height())) - 60 > (parseInt($(window).scrollTop()))  )
+        {
+            //console.log("hidden");
+            //$mbarlogo.css("visibility", "hidden").fadeIn("slow");
+            if ( !$animationinprogress && $mbarlogo.css("opacity") != 0.0 ){
+                $animationinprogress = true;
+                $mbarlogo.animate({ opacity: 0.0 }, 400, "swing", function(){$animationinprogress=false;});
+            }
+        }
+        else{
+            //console.log("visible");
+            if ( !$animationinprogress && $mbarlogo.css("opacity") != 1.0 ){
+                $animationinprogress = true;
+                $mbarlogo.animate({ opacity: 1.0 }, 400, "swing", function(){$animationinprogress=false;});
+            }
+            //$mbarlogo.css("visibility", "visible").fadeIn("slow");
+        }
+        
+    });
+    
+    function endslide(){}
+    
+    
+    
+    
+    $("#encvidid").on("click", function(){
+        $(window).scrollTop( $(".jcarousel-wrapper-wrapper-wrapper").offset().top - 130);
+    });
+    
+    $(".jcarousel-wrapper-wrapper-wrapper").on("click", function(event){
+        if ( parseFloat(event.pageY - this.offsetTop) < parseFloat($(".jcarousel-wrapper-wrapper-wrapper").height()) - (parseFloat($(".jcarousel-wrapper-wrapper-wrapper").height()) / 5 ) ){
+            $(window).scrollTop( $("#scrollmaincontents").offset().top - 130);
+            //alert("scroll");
+        }
+        //alert(event.offsetY);
+        
+        //alert(event.pageY - this.offsetTop);
+        //alert( parseFloat($(".jcarousel-wrapper-wrapper-wrapper").height()) - (parseFloat($(".jcarousel-wrapper-wrapper-wrapper").height()) / 5 ) )
+        //$(".jcarousel-wrapper-wrapper-wrapper")
+        //$(window).scrollTop( $("#scrollmaincontents").offset().top - 130);
+    });
+    
+    
+        
+});
+
+
+
+</script>
+
+
+<div class="titlebar">
+
+    <div class="container-fluid maincontents">  
+    
+        <!-- Our Story -->
+        <div class="row">
+            <div class="col-2-lg">
+                <span class="titleitem">
+                    <img class="menubarlogo" src="static/Encore-Logo-MenuBar.jpg">
+                </span>
+            </div> <!-- close <div class="col"> -->
+            <div class="col-2-lg">
+                <div class="titleitem" style="padding-right:10px;padding-left:10px;padding-top:44px;">
+                    <a class="enchoverlink" href="#">Our Story</a>
+                </div>
+            </div> <!-- close <div class="col"> -->
+
+            <div class="col-2-lg">
+                <div class="titleitem" style="padding-right:10px;padding-left:10px;padding-top:44px;">
+                    <a class="enchoverlink" href="#">Products</a>
+                </div>                
+            </div> <!-- close <div class="col"> -->
+
+            <div class="col-2-lg">
+                <div class="titleitem" style="padding-right:10px;padding-left:10px;padding-top:44px;">
+                    <a class="enchoverlink" href="#">Contact</a>
+                </div>                
+            </div> <!-- close <div class="col"> -->
+
+        </div> <!-- <div class="row encrow"> -->
+    </div>
+    <!--
+    
+    <hr>
+    
+    <div class="titlebarinner">
+
+        
+
+        <span class="titleitem">
+            <img class="menubarlogo" src="static/Encore-Logo-MenuBar.jpg">
+        </span>
+
+        <span class="titleitem">
+        
+            Our Story
+        
+        </span>
+        
+        <span class="titleitem">
+        
+            Products
+        
+        </span>
+        
+        <span class="titleitem">
+        
+            Contact
+            
+        </span>
+
+        -->
+
+    </div> <!-- close <div class="titlebarinner"> -->
+    
+    <div class="titlefade2"></div>
+        
+</div>
+
+<br><br><br>
+
+
+<div class="moviecontainer">
+    <center>
+        
+            
+                    <video id="encvidid" class="encvideo" autoplay>
+                        <source src="static/EncoreLogoV.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video> 
+            
+    </center>
+</div> <!-- <div class="moviecontainer"> -->  
+
+<div class="encheaderpartition">
+</div>
+
+<div class="jcarousel-wrapper-wrapper-wrapper">
+    <center>
+        <div class="jcarousel-wrapper-wrapper">
+            <div class="jcarousel-wrapper">
+                <div class="jcarousel">
+                    <ul>
+                        <li>
+                            <div class="lidiv"><img class="carouselimg" src="static/carousel-00.jpg">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lidiv"><img class="carouselimg" src="static/carousel-01.jpg">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lidiv"><img class="carouselimg" src="static/carousel-02.jpg">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="carouselnavcontainer">
+                    <span class="carouselnavlink">
+                        <a id="carouselnav0">
+                            <svg height="18" width="18">
+                                <rect class="encrect" x="1" y="1" width="16" height="16" />
+                            </svg>
+                        </a>
+                    </span>
+                    <span class="carouselnavlink">
+                        <a id="carouselnav1">
+                            <svg height="18" width="18">
+                                <rect class="encrect" x="1" y="1" width="16" height="16" />
+                            </svg>
+                        </a>                    
+                    </span>
+                    <span class="carouselnavlink">
+                        <a id="carouselnav2">
+                            <svg height="18" width="18">
+                                <rect class="encrect" x="1" y="1" width="16" height="16" />
+                            </svg>
+                        </a>                    
+                    </span>
+                </div> <!-- <div class="carouselnavcontainer"> -->
+                <!--
+                <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+                -->
+            </div> <!-- close <div class="jcarousel-wrapper"> -->
+        </div> <!-- <div class="jcarousel-wrapper-wrapper"> -->
+    </center>        
+</div> <!-- close <div class="jcarousel-wrapper-wrapper-wrapper">-->
+
+<div class="encheaderpartition">
+</div>
+
+  
+<div id="scrollmaincontents" class="container-fluid maincontents">  
+  
+    <!-- Our Story -->
+    <div class="row encrowheader">
+        <div class="col-12 enccol">
+            Our Story
+        </div> <!-- close <div class="col"> -->
+    </div> <!-- <div class="row encrow"> -->
+    <div class="row justify-content-center encrow">
+        <div class="col-6 enccol">
+            <div class="enccoltext">
+                <div id="story-image-id">
+                    <img id="story-image-scr-id" class="encimgmainpg" src="static/Road-Watercolor-Classic-PL.jpg">
+                </div>
+
+            </div> <!-- <div class="enccoltext"> -->
+        </div> <!-- close <div class="col"> -->
+        <div class="col-6 enccol">
+            <div class="enccoltext">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet, neque at facilisis viverra, lorem libero placerat enim, non tincidunt odio augue ultrices turpis. Ut suscipit lacus vel ex ultrices, ac suscipit sapien viverra. Vestibulum tempor leo et purus blandit volutpat. Praesent laoreet ligula vitae risus aliquam, eget posuere urna volutpat. Maecenas iaculis dictum enim, eu condimentum nisl imperdiet et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec dui at odio mattis pellentesque. Aenean tincidunt lacus at libero suscipit tincidunt. Sed venenatis tellus sed purus vulputate mollis id et nisl. Donec dui purus, pellentesque vitae orci id, sagittis viverra risus.
+            </div> <!-- <div class="enccoltext"> -->
+        </div> <!-- close <div class="col"> -->
+    </div> <!-- close <div class="row"> -->
+    
+    <hr>
+    
+    <!-- Products -->
+    <div class="row encrowheader">
+        <div class="col-12 enccol">
+            Products
+        </div> <!-- close <div class="col"> -->
+    </div> <!-- <div class="row encrow"> -->
+    <div class="row encrow">
+        <div class="col-6 enccol">
+            <div class="enccoltext">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet, neque at facilisis viverra, lorem libero placerat enim, non tincidunt odio augue ultrices turpis. Ut suscipit lacus vel ex ultrices, ac suscipit sapien viverra. Vestibulum tempor leo et purus blandit volutpat. Praesent laoreet ligula vitae risus aliquam, eget posuere urna volutpat. Maecenas iaculis dictum enim, eu condimentum nisl imperdiet et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec dui at odio mattis pellentesque. Aenean tincidunt lacus at libero suscipit tincidunt. Sed venenatis tellus sed purus vulputate mollis id et nisl. Donec dui purus, pellentesque vitae orci id, sagittis viverra risus.
+            </div> <!-- <div class="enccoltext"> -->
+        </div> <!-- close <div class="col"> -->
+        <div class="col-6 enccol">
+                <div id="product-image-id">
+                    <img id="product-image-scr-id" class="encimgmainpg" src="static/Marketing-Collateral-Group-Mockup-02.jpg">
+                </div>
+        </div> <!-- close <div class="col"> -->
+    </div> <!-- close <div class="row"> -->
+
+    
+    <hr>
+    
+    <!-- Contact -->
+    <div class="row encrowheader">
+        <div class="col-12 enccol">
+            Contact
+        </div> <!-- close <div class="col"> -->
+    </div> <!-- <div class="row encrow"> -->
+    <div class="row encrow">
+        <div class="col-12 enccol">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet, neque at facilisis viverra, lorem libero placerat enim, non tincidunt odio augue ultrices turpis. Ut suscipit lacus vel ex ultrices, ac suscipit sapien viverra. Vestibulum tempor leo et purus blandit volutpat. Praesent laoreet ligula vitae risus aliquam, eget posuere urna volutpat. Maecenas iaculis dictum enim, eu condimentum nisl imperdiet et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec dui at odio mattis pellentesque. Aenean tincidunt lacus at libero suscipit tincidunt. Sed venenatis tellus sed purus vulputate mollis id et nisl. Donec dui purus, pellentesque vitae orci id, sagittis viverra risus.
+        </div> <!-- close <div class="col"> -->
+    </div> <!-- close <div class="row"> -->
+    
+    
+    
+</div>
+
+
+<br><br>
+
+<center>All Rights Reserved Encore Automotive Inc.</center>
+
+
+<br><br>
+
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+body {
+  background-color: black;
+}
+#tabs {
+  margin: 30px;
+}
+.encorepartscontainer {
+  background-color: #323232;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black;
+  color: black;
+}
+.encorepartsdiv {
+  display: inline-block;
+}
+#div_year #body_year_select {
+  width: 100px;
+}
+#div_make #body_make_select {
+  width: 157px;
+}
+#div_model #body_model_select {
+  width: 237px;
+}
+#div_product #body_product_select {
+  width: 330px;
+}
+#div_engineliters #body_engineliters_select {
+  width: 100px;
+}
+#div_enginecylinder #body_enginecylinder_select {
+  width: 100px;
+}
+#div_enginecc #body_enginecc_select {
+  width: 100px;
+}
+#div_engineboreinch #body_engineboreinch_select {
+  width: 100px;
+}
+#div_enginestrokeinch #body_enginestrokeinch_select {
+  width: 100px;
+}
+.encoresort {
+  cursor: pointer;
+}
+.encoreproductrow {
+  cursor: pointer;
+}
+.ui-tabs-tab .ui-tabs-nav .ui-tabs-anchor {
+  background-color: black!important;
+}
+.ui-state-active {
+  background: black !important;
+}
+.enc-clear-select-icon {
+  height: 17px;
+  width: auto;
+}
+/*
+.enc-parts-input > .row,  .enc-parts-input > .row > .col, .enc-parts-input > .row > .col > .encoreselectdiv, .enc-parts-input > .row > .col > .encoreselectdiv > .encoreselect, .enc-parts-input > .row > .col > .encoreselectdiv > a {
+*/
+.encoreselectdiv {
+  padding-top: 9px;
+  padding-bottom: 10px;
+}
+.enc-parts-input > .row > .col,
+.enc-parts-input > .row > .col > .input-field {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.enc-parts-input > .row {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.enc-parts-input {
+  width: 100%!important;
+}
+.enc-parts-input-container {
+  width: 80%!important;
+}
+.indicator {
+  background-color: #fafafa!important;
+}
+.enc-search-btn {
+  background-color: #212121!important;
+  color: #fafafa!important;
+}
+/* Drop down list with vertical scrollbar */
+#ddList-colorsList > ul {
+  max-height: 197px;
+}

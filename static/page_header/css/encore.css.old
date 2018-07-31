@@ -1,0 +1,394 @@
+.titlebar{
+    
+    position: fixed;
+    background-color: rgba(0,0,0,1.0);
+    color: #ffffff;
+    width:110%;
+    /*
+ *     margin-left: -15px;
+ *         margin-right: -15px;
+ *             margin-top: -15px;
+ *                 margin-bottom: 0px;
+ *                     padding-top:6px;
+ *                         */
+    height:120px;
+    left:0px;
+    top:0px;
+    z-index: 5;
+}
+
+.titlebarinner{
+    
+    padding:0px;
+}
+
+.enchoverlink{
+    text-decoration:none;
+    color: #ffffff;
+}
+
+.enchoverlink:hover{
+    text-decoration:none;
+    /*box-shadow: 1px 1px 1px #f1f1f1;*/
+    color: #ffffff;
+}
+
+.titleitem{
+    
+    color: #ffffff;
+    background-color: rgba(0,0,0,1.0);
+    /*margin-top: 20px;*/
+    margin-left: 10px;
+    margin-right: 10px;
+    border-color: #ffffff;
+    font-size: 26px;
+    font-family: sans-serif;
+    /*font-weight: bold;*/
+}
+.titleitemtext{
+    padding-right:10px;
+    padding-left:10px;
+    padding-top:44px;
+}
+
+.titlefade0{
+    
+    background-color: #444444;
+    width: 100%;
+    height:5px;
+}
+
+.titlefade1{
+    
+    background-color: #444444;
+    width: 100%;
+    height:5px;
+}
+
+.titlefade2{
+    
+    background-color: #888888;
+    width: 100%;
+    height:5px;
+}
+
+
+.maincontents{
+    margin-top:0px;
+    margin-left:0px;
+    margin-right:0px;
+    padding-right:0px;
+    padding-left:0px;
+    width:90%!important;
+
+}
+
+.encrow{
+    margin-left:0px;
+    margin-right:0px;
+    padding-right:0px;
+    padding-left:0px;
+}
+
+/*
+ * .container{
+ *     margin-left:0px;
+ *         margin-right:0px;
+ *             padding-right:0px;
+ *                 padding-left:0px;
+ *                     max-width:100%!important;
+ *                         width:100%!important;
+ *                             
+ *                             }
+ *                             */
+
+.enccoltext{
+    
+    padding-left:30px;
+    padding-right:30px;
+    text-align: left;
+    
+}
+
+.enccol{
+    text-align:center;
+    margin-left:0px;
+    margin-right:0px;
+    padding-right:0px;
+    padding-left:0px;
+}
+
+.encrowheader{
+    padding:0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    /*
+    padding-top:85px;
+    padding-bottom:55px;
+    padding-left:25px;
+    padding-right:25px;
+    */
+    font-family: sans-serif;
+    text-align:center;
+    
+    
+}
+
+
+.encore-svg-divider{
+    margin-top:35px;
+    margin-bottom:35px;
+}
+
+.encvideo{
+    width:1000px;
+}
+
+.moviecontainer{
+    padding-top:52px;
+    padding-bottom:10px;
+    width:100%;
+    background-color:rgba(0,0,0,1.0);
+    text-align:center;
+}
+
+.menubarlogo{
+    height: 80px;
+    /*visibility:hidden;*/
+    opacity:0.0;
+}
+
+.encheaderpartition{
+    height:190px;
+    background-color: rgba(0,0,0,1.0);
+}
+
+.encimgmainpg{
+    max-width: 100%;
+    width: auto;
+}
+
+
+
+.lidiv {
+    text-align: center;
+    
+}
+
+.jcarousel-wrapper {
+    text-align: center;
+
+}
+
+.jcarousel-wrapper-wrapper {
+    text-align: center;    
+    
+}
+
+.jcarousel-wrapper-wrapper-wrapper {
+    text-align: center;    
+    background-color: rgba(0,0,0,1.0);
+    width:100%;
+    padding-bottom:15px;
+}
+
+
+#carouselnav0 #carouselnav1 #carouselnav2{
+    text-decoration: none;
+}
+
+.carouselnavlink{
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.carouselnavcontainer{
+    position:relative;
+    top: -30;
+    text-decoration: none;
+
+}
+
+.encrect{
+    fill-opacity:0.6;
+    stroke-opacity:0.9;
+    fill:rgb(33,33,33);
+    stroke-width:1;
+    stroke:rgb(0,0,0);
+}
+
+.encrect:hover{
+    fill-opacity:0.6;
+    stroke-opacity:0.9;
+    fill:rgb(199,199,199);
+    stroke-width:1;
+    stroke:rgb(0,0,0);
+    cursor:pointer;
+}
+
+#product-image-id {
+    overflow:visible;
+    position:absolute;
+    overflow: hidden;
+    max-height:200px;
+    width:100%;
+
+}
+
+#product-image-scr-id {
+    max-height:200px;
+    visibility: hidden;
+}
+
+#story-image-id {
+    overflow:visible;
+    position:absolute;
+    overflow: hidden;
+    /*max-height:200px;*/
+    width:100%;
+
+}
+
+#story-image-scr-id {
+    max-height:200px;
+    visibility: hidden;
+}
+
+.taglineovercarousel0{
+    color:white;
+}
+
+.taglineovercarouselcontainer0{
+    position:relative;
+    font-size: 43;
+    margin-left: 15px;
+    margin-top: 15px;
+    padding: 18px;
+    top:-421px;
+    left:1%;
+    width:310px;
+    text-align:center;
+    background-color:rgba(94,94,94,0.4);
+    border-radius: 6px;
+    border-style: solid;
+    border-width:0px;
+    box-shadow: 10px 10px 35px rgba(94,94,94,0.4), -10px -10px 35px rgba(94,94,94,0.4);
+
+}    
+
+.taglineovercarousel1{
+    color:white;
+}
+
+.taglineovercarouselcontainer1{
+    position:relative;
+    font-size: 43;
+    margin-left: 15px;
+    margin-top: 15px;
+    padding: 18px;
+    top:-400px;
+    left:60%;
+    width:310px;
+    text-align:center;
+    background-color:rgba(144,144,144,0.4);
+    border-radius: 6px;
+    border-style: solid;
+    border-width:0px;
+    box-shadow: 10px 10px 35px rgba(144,144,144,0.4), -10px -10px 35px rgba(144,144,144,0.4);
+
+}    
+/*
+ * This is the visible area of you carousel.
+ * Set a width here to define how much items are visible.
+ * The width can be either fixed in px or flexible in %.
+ * Position must be relative!
+ * */
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+}
+
+/*
+ * This is the container of the carousel items.
+ * You must ensure that the position is relative or absolute and
+ * that the width is big enough to contain all items.
+ * */
+.jcarousel ul {
+    width: 10000em;
+    position: relative;
+
+    /* Optional, required in this case since it's a <ul> element */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * These are the item elements. jCarousel works best, if the items
+ * have a fixed width and height (but it's not required).
+ * */
+.jcarousel li {
+    /* Required only for block elements like <li>'s */
+    float: left;
+    height:300px;
+
+}
+
+
+
+.jcarousel li {width:10px;height:5px;}
+.jcarousel-wrapper-wrapper {width:10px;}
+.carouselimg {width:10px;height:5px;}
+.encvideo {width:10px;}
+
+@media screen and (min-width: 200px){
+    .jcarousel li {width:100px;height:45px;}
+    .jcarousel-wrapper-wrapper {width:100px;}
+    .carouselimg {width:100px;height:45px;}
+    .encvideo {width:100px;}
+}
+@media screen and (min-width: 300px){
+    .jcarousel li {width:200px;height:90px;}
+    .jcarousel-wrapper-wrapper {width:200px;}
+    .carouselimg {width:200px;height:90px;}
+    .encvideo {width:200px;}
+}
+@media screen and (min-width: 500px){
+    .jcarousel li {width:400px;height:180px;}
+    .jcarousel-wrapper-wrapper {width:400px;}
+    .carouselimg {width:400px;height:180px;}
+    .encvideo {width:400px;}
+}
+@media screen and (min-width: 700px){
+    .jcarousel li {width:600px;height:270px;}
+    .jcarousel-wrapper-wrapper {width:600px;}
+    .carouselimg {width:600px;height:270px;}
+    .encvideo {width:600px;}
+}
+@media screen and (min-width: 900px){
+    .jcarousel li {width:800px;height:360px;}
+    .jcarousel-wrapper-wrapper {width:800px;}
+    .carouselimg {width:800px;height:360px;}
+    .encvideo {width:800px;}
+}
+
+@media screen and (min-width: 1100px){
+    .jcarousel li {width:1000px;height:449px;}
+    .jcarousel-wrapper-wrapper {width:1000px;}
+    .carouselimg {width:1000px;height:449px;}
+    .encvideo {width:1000px;}
+}
+/*
+ * @media screen and (min-width: 1300px){
+ *     .jcarousel li {width:1200px;height:539px;}
+ *         .jcarousel-wrapper-wrapper {width:1200px;}
+ *             .carouselimg {width:1200px;height:539px;}
+ *             }
+ *             @media screen and (min-width: 1500px){
+ *                 .jcarousel li {width:1400px;height:629;}
+ *                     .jcarousel-wrapper-wrapper {width:1400px;}
+ *                         .carouselimg {width:1400px;height:629;}
+ *                         }
+ *                         */
