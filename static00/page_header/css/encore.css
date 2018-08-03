@@ -1,0 +1,369 @@
+/* small screen */
+@media screen and (max-width: 1000px) {
+  .titlefade2,
+  .titlecontents,
+  .titlebar,
+  .titlerow,
+  .encrow,
+  .titlecontents,
+  .titlefade2,
+  .titleitemtext {
+    visibility: hidden;
+    display: none;
+  }
+  .titlebar-sm {
+    background-color: #000000;
+    color: #ffffff;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 5;
+  }
+  .enchoverlink {
+    text-decoration: none!important;
+    color: #ffffff!important;
+  }
+  .enchoverlink:hover {
+    text-decoration: none!important;
+    /*box-shadow: 1px 1px 1px #f1f1f1;*/
+    color: #ffffff!important;
+  }
+  .titleitem-sm {
+    color: #ffffff;
+    background-color: #000000;
+    /*margin-top: 20px;*/
+    margin-left: 10px;
+    margin-right: 10px;
+    border-color: #ffffff;
+    font-size: 26px;
+    font-family: impact, sans-serif;
+    letter-spacing: 2px;
+    /*font-weight: bold;*/
+  }
+  .titleitem-text-sm {
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 44px;
+  }
+  .titlecontents-sm {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 90%!important;
+  }
+  .menubarlogosm {
+    height: 80px;
+    /*visibility:hidden;*/
+  }
+  .enc-lg {
+    display: none;
+  }
+  .enc-sm {
+    display: initial;
+  }
+  .encheaderpartition {
+    height: 190px;
+    background-color: #000000;
+    display: none;
+  }
+}
+/* large screen */
+@media screen and (min-width: 1000px) {
+  .titlebar-sm,
+  .titleitem-sm,
+  .titleitem-text-sm,
+  .menubarlogosm,
+  .titlecontents-sm,
+  .titlerow-sm,
+  .titlecontents-sm {
+    visibility: hidden;
+    display: none;
+  }
+  .titlebar {
+    position: fixed;
+    background-color: #000000;
+    color: #ffffff;
+    width: 100%;
+    height: 120px;
+    left: 0px;
+    top: 0px;
+    z-index: 5;
+  }
+  .titlebarinner {
+    padding: 0px;
+  }
+  .enchoverlink {
+    text-decoration: none!important;
+    color: #ffffff!important;
+  }
+  .enchoverlink:hover {
+    text-decoration: none!important;
+    /*box-shadow: 1px 1px 1px #f1f1f1;*/
+    color: #ffffff!important;
+  }
+  .titleitem {
+    color: #ffffff;
+    background-color: #000000;
+    /*margin-top: 20px;*/
+    margin-left: 10px;
+    margin-right: 10px;
+    border-color: #ffffff;
+    font-size: 22px;
+    font-family: impact, sans-serif;
+    letter-spacing: 4;
+    /*font-weight: bold;*/
+  }
+  .titleitemtext {
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 44px;
+  }
+  .titlefade2 {
+    background-color: #888888;
+    width: 100%;
+    height: 5px;
+  }
+  .titlecontents {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 90%!important;
+  }
+  .encrow {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .enc-lg {
+    display: initial;
+  }
+  .enc-sm {
+    display: none;
+  }
+  .encheaderpartition {
+    height: 190px;
+    background-color: #000000;
+    display: initial;
+  }
+}
+.enc-header-row-text {
+  padding: 0px;
+  font-size: 25px;
+  font-family: sans-serif;
+}
+.encvideo {
+  /*width:1000px;*/
+}
+.moviecontainer {
+  padding-top: 52px;
+  padding-bottom: 10px;
+  width: 100%;
+  background-color: #000000;
+  text-align: center;
+}
+.menubarlogo {
+  height: 80px;
+  opacity: 0.0;
+}
+.jcarousel-wrapper {
+  text-align: center;
+}
+.jcarousel-wrapper-wrapper {
+  text-align: center;
+}
+.jcarousel-wrapper-wrapper-wrapper {
+  text-align: center;
+  background-color: #000000;
+  width: 100%;
+  padding-bottom: 15px;
+}
+#carouselnav0 #carouselnav1 #carouselnav2 {
+  text-decoration: none;
+}
+.carouselnavlink {
+  margin-left: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+.carouselnavcontainer {
+  position: relative;
+  top: 0;
+  text-decoration: none;
+}
+.encrect {
+  fill-opacity: 0.6;
+  stroke-opacity: 0.9;
+  fill: #212121;
+  stroke-width: 1;
+  stroke: #000000;
+}
+.encrect:hover {
+  fill-opacity: 0.6;
+  stroke-opacity: 0.9;
+  fill: #c7c7c7;
+  stroke-width: 1;
+  stroke: #000000;
+  cursor: pointer;
+}
+.enc-col {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.footer-copyright {
+  font-family: sans-serif;
+}
+#product-image-id {
+  visibility: hidden;
+}
+#story-image-id {
+  visibility: hidden;
+}
+/*
+ * This is the visible area of you carousel.
+ * Set a width here to define how much items are visible.
+ * The width can be either fixed in px or flexible in %.
+ * Position must be relative!
+ * */
+.jcarousel {
+  position: relative;
+  overflow: hidden;
+}
+/*
+ * This is the container of the carousel items.
+ * You must ensure that the position is relative or absolute and
+ * that the width is big enough to contain all items.
+ * */
+.jcarousel ul {
+  width: 10000em;
+  position: relative;
+  /* Optional, required in this case since it's a <ul> element */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/*
+ * These are the item elements. jCarousel works best, if the items
+ * have a fixed width and height (but it's not required).
+ * */
+.jcarousel li {
+  /* Required only for block elements like <li>'s */
+  float: left;
+  height: 300px;
+}
+.jcarousel li {
+  width: 10px;
+  height: 5px;
+}
+.jcarousel-wrapper-wrapper {
+  width: 10px;
+}
+.carouselimg {
+  width: 10px;
+  height: 5px;
+}
+.encvideo {
+  width: 10px;
+}
+@media screen and (min-width: 200px) {
+  .jcarousel li {
+    width: 100px;
+    height: 45px;
+  }
+  .jcarousel-wrapper-wrapper {
+    width: 100px;
+  }
+  .carouselimg {
+    width: 100px;
+    height: 45px;
+  }
+  .encvideo {
+    width: 50px;
+  }
+}
+@media screen and (min-width: 300px) {
+  .jcarousel li {
+    width: 200px;
+    height: 90px;
+  }
+  .jcarousel-wrapper-wrapper {
+    width: 200px;
+  }
+  .carouselimg {
+    width: 200px;
+    height: 90px;
+  }
+  .encvideo {
+    width: 100px;
+  }
+}
+@media screen and (min-width: 500px) {
+  .jcarousel li {
+    width: 400px;
+    height: 180px;
+  }
+  .jcarousel-wrapper-wrapper {
+    width: 400px;
+  }
+  .carouselimg {
+    width: 400px;
+    height: 180px;
+  }
+  .encvideo {
+    width: 200px;
+  }
+}
+@media screen and (min-width: 700px) {
+  .jcarousel li {
+    width: 600px;
+    height: 270px;
+  }
+  .jcarousel-wrapper-wrapper {
+    width: 600px;
+  }
+  .carouselimg {
+    width: 600px;
+    height: 270px;
+  }
+  .encvideo {
+    width: 400px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .jcarousel li {
+    width: 800px;
+    height: 360px;
+  }
+  .jcarousel-wrapper-wrapper {
+    width: 800px;
+  }
+  .carouselimg {
+    width: 800px;
+    height: 360px;
+  }
+  .encvideo {
+    width: 600px;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .jcarousel li {
+    width: 1000px;
+    height: 449px;
+  }
+  .jcarousel-wrapper-wrapper {
+    width: 1000px;
+  }
+  .carouselimg {
+    width: 1000px;
+    height: 449px;
+  }
+  .encvideo {
+    width: 800px;
+  }
+}
