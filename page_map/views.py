@@ -111,7 +111,7 @@ def view_page_mapsearch(request):
             lat = request.GET['lat']
             lon = request.GET['lon']
             
-            urlstr = 'http://127.0.0.1:8983/solr/encorel/select?d='
+            urlstr = '/solr/encorel/select?d='
             urlstr += str(distance)
             urlstr += '&df=recip(geodist(),1,1,1)&pt='
             urlstr += lat + ',' + lon
@@ -125,7 +125,7 @@ def view_page_mapsearch(request):
             
             for server in settings.SOLR_SERVERS:
                         
-                r = requests.get( urlstr )
+                r = requests.get( 'http://' + server + urlstr )
             
                 if r.ok: break
                 
