@@ -19,27 +19,36 @@ jslogger = logging.getLogger('jslogger')
 
 def view_page_parts(request):
 
-  renderedtemplates = ''
-
-  # header 00 template
-  template = loader.get_template('page_header/page_header.html')
-  context = { 'partspage': True, 'title':'Products' }
-  renderedtemplates += template.render(context, request)
-
-  template = loader.get_template('page_parts/page_parts.html')
-  if settings.SWARM:
-    context = { 'domain':'encoreautomotive.parts' }
-  else:
-    context = { 'domain':'127.0.0.1:8000' }
+    renderedtemplates = ''
     
-  renderedtemplates += template.render(context, request)
+    # header 00 template
+    template = loader.get_template('page_header/page_header_start.html')
+    context = { 'partspage': True, 'title':'Products' }
+    renderedtemplates += template.render(context, request)
 
-  # footer 00 template
-  template = loader.get_template('page_footer/page_footer.html')
-  context = { 'filter': '-webkit-filter: invert(100%); filter: invert(100%);' }
-  renderedtemplates += template.render(context, request)
+    template = loader.get_template('page_header/page_header_end.html')
+    context = { }
+    renderedtemplates += template.render(context, request)
+# 
+    template = loader.get_template('page_header/page_body_start.html')
+    context = { }
+    renderedtemplates += template.render(context, request)
 
-  return HttpResponse(renderedtemplates)
+
+    template = loader.get_template('page_parts/page_parts.html')
+    if settings.SWARM:
+      context = { 'domain':'encoreautomotive.parts' }
+    else:
+      context = { 'domain':'127.0.0.1:8000' }
+      
+    renderedtemplates += template.render(context, request)
+    
+    # footer 00 template
+    template = loader.get_template('page_footer/page_footer.html')
+    context = { 'filter': '-webkit-filter: invert(100%); filter: invert(100%);' }
+    renderedtemplates += template.render(context, request)
+    
+    return HttpResponse(renderedtemplates)
 
 
 

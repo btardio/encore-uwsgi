@@ -25,6 +25,11 @@ from page_parts.views import view_executepartdetailsearch
 from page_parts.views import view_executeoemsearch
 from page_parts.views import view_executeoempartsearch
 from page_contact.views import form_view_page_consult
+from page_map.views import view_page_stores
+from page_map.views import view_page_mapsearch
+from page_map.views import view_page_streetview
+from page_map.views import view_page_satelliteview
+from page_map.views import view_page_urlredirect
 
 #from encore_parts_page.views import view_solr_through
 
@@ -32,6 +37,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'', view_page_main),
     path(r'parts', view_page_parts),
+    path(r'stores', view_page_stores),
     path(r'logerror', view_javascript_error),
     path(r'makefacetrequest', view_makefacetrequest),
     path(r'makesearchrequest', view_makesearchrequest),
@@ -39,6 +45,10 @@ urlpatterns = [
     path(r'executeoemsearch', view_executeoemsearch),
     path(r'executeoempartsearch', view_executeoempartsearch),
     path(r'contact', form_view_page_consult.as_view()),
+    path(r'mapsearch', view_page_mapsearch),
+    path(r'mapstreet', view_page_streetview),
+    path(r'mapsatellite', view_page_satelliteview),
+    path(r'storeurlredirect', view_page_urlredirect),
     
 #    re_path(r'solr(?P<solr>.*)', view_solr_through),
 ]

@@ -134,8 +134,16 @@ class form_view_page_consult( FormView ):
         form = forms.contact_form()
         
         # header 00 template
-        template = loader.get_template('page_header/page_header.html')
+        template = loader.get_template('page_header/page_header_start.html')
         context = { 'contactpage': True, 'title': 'Contact' }
+        renderedtemplates += template.render(context, request)
+
+        template = loader.get_template('page_header/page_header_end.html')
+        context = { }
+        renderedtemplates += template.render(context, request)
+    # 
+        template = loader.get_template('page_header/page_body_start.html')
+        context = { }
         renderedtemplates += template.render(context, request)
 
         template = loader.get_template('page_contact/page_contact.html')
@@ -275,8 +283,16 @@ class form_view_page_consult( FormView ):
         renderedtemplates = ''
         
         # header 00 template
-        template = loader.get_template('page_header/page_header.html')
+        template = loader.get_template('page_header/page_header_start.html')
         context = { 'contactpage': True, 'title': 'Thank you for contacting us!' }
+        renderedtemplates += template.render(context, request)
+
+        template = loader.get_template('page_header/page_header_end.html')
+        context = { }
+        renderedtemplates += template.render(context, request)
+    # 
+        template = loader.get_template('page_header/page_body_start.html')
+        context = { }
         renderedtemplates += template.render(context, request)
 
         template = loader.get_template('page_contact/page_contact_received.html')
@@ -294,9 +310,18 @@ class form_view_page_consult( FormView ):
         renderedtemplates = ''
         
         # header 00 template
-        template = loader.get_template('page_header/page_header.html')
+        template = loader.get_template('page_header/page_header_start.html')
         context = { 'contactpage': True, 'title': 'Contact' }
         renderedtemplates += template.render(context, request)
+
+        template = loader.get_template('page_header/page_header_end.html')
+        context = { }
+        renderedtemplates += template.render(context, request)
+    # 
+        template = loader.get_template('page_header/page_body_start.html')
+        context = { }
+        renderedtemplates += template.render(context, request)
+
 
         template = loader.get_template('page_contact/page_contact.html')
         context = { 'form': form }
