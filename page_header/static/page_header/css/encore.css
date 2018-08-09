@@ -1,5 +1,5 @@
 /* small screen */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1300px) {
   .titlefade2,
   .titlecontents,
   .titlebar,
@@ -70,7 +70,7 @@
   }
 }
 /* large screen */
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1300px) {
   .titlebar-sm,
   .titleitem-sm,
   .titleitem-text-sm,
@@ -154,6 +154,11 @@
 .enc-header-row-text {
   padding: 0px;
   font-size: 25px;
+  font-family: sans-serif;
+}
+.enc-header-row-text-sm {
+  padding: 0px;
+  font-size: 20px;
   font-family: sans-serif;
 }
 .encvideo {

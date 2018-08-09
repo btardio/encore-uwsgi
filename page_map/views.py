@@ -30,6 +30,10 @@ def view_page_stores(request):
     context = { }
     renderedtemplates += template.render(context, request)
 
+    template = loader.get_template('page_map/page_map_show_logo.html')
+    context = { }
+    renderedtemplates += template.render(context, request)
+
     template = loader.get_template('page_map/xx01')
     context = { }
     renderedtemplates += template.render(context, request)
